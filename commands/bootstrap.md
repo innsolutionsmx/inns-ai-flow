@@ -51,11 +51,15 @@ overwrite existing content.
      hook now injects that state automatically; prose is redundant.
    - Session close protocol (lives in `briefing` / `guardar-cambios-git`).
 
-   If CLAUDE.md **doesn't exist**: create it with only the project-owned sections.
-   If it **exists**: identify convention sections that the plugin now owns, show the
-   user the list, and ask confirmation to REMOVE them (keeping anything with
-   project-specific customizations — when a section mixes both, keep only the
-   project-specific lines).
+   If CLAUDE.md **doesn't exist**: create it from the canonical template at
+   `${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.template.md` — read it, keep its exact
+   section structure and order, fill the `{{placeholders}}` with values DETECTED
+   from the repo, and drop optional sections that don't apply. Do not invent a
+   different structure.
+   If it **exists**: restructure it toward the same template — identify convention
+   sections that the plugin now owns, show the user the list, and ask confirmation
+   to REMOVE them (keeping anything with project-specific customizations — when a
+   section mixes both, keep only the project-specific lines).
 
 5. **Settings.** Merge into `.claude/settings.json` (create if missing, PRESERVE all
    existing keys — hooks, permissions, other plugins):

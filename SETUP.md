@@ -52,6 +52,24 @@ them and ask the human to confirm removal:
 Keep any OTHER project hooks/skills untouched (e.g. project-specific ones like
 `ux-polish`, `playwright-auto-qa`, `detect-ui-change.js`).
 
+**Then sweep stale references.** The project's docs and remaining local skills may
+reference the OLD flow. Search and fix:
+
+```
+rg -l 'iniciar-trabajo-git|guardar-cambios-git|briefing|git-guard|\.claude/hooks|\.claude/skills/seo-frontend' \
+   --glob '!.claude/plugins' CLAUDE.md ai ia docs .claude/skills 2>/dev/null
+```
+
+- Plugin skills are namespaced: `/iniciar-trabajo-git` → `/inns-ai-flow:iniciar-trabajo-git`.
+  Update explicit slash references in docs and in remaining LOCAL skills (e.g. a
+  `crear-proyecto` or `arrancar-desarrollo` skill that hands off to the gitflow skills).
+- References to `.claude/hooks/...` paths or "`settings.json` engancha los hooks" →
+  now "los hooks los provee el plugin `inns-ai-flow`".
+- Plain-prose mentions ("la skill iniciar-trabajo-git") can stay — skill names didn't
+  change, only their home.
+
+Show the user the reference diff before committing.
+
 ## 4. Bootstrap the convention (only if missing)
 
 If the project has no `ai/` or `ia/` context folder or no CLAUDE.md, tell the human

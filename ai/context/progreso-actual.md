@@ -11,10 +11,11 @@
 - **Fecha**: 2026-07-15
 - **Máquina**: Mac (oficina)
 - **Rama actual**: `dev`
-- **Última acción**: Documentación completa (`docs/`: qué-es-y-por-qué, casos de uso,
-  referencia, actualización, desarrollo-y-releases) + `autoUpdate: true` en todos los
-  settings y ejemplos (los proyectos reciben releases solos) + fallback de instalación
-  documentado en SETUP.md. Todo en `dev`, pendiente de release.
+- **Última acción**: **RELEASE v0.4.0 a `main`** (aprobada por Pepe): dogfood
+  (self-install + rama dev), hook progreso-status, regla de ownership de CLAUDE.md,
+  template canónico, sweep de referencias legacy en SETUP, docs/ completos y
+  autoUpdate en settings/ejemplos. Los proyectos con autoUpdate la reciben en su
+  próxima sesión.
 
 ---
 

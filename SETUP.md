@@ -28,7 +28,8 @@ everything else:
 {
   "extraKnownMarketplaces": {
     "inns-ai-flow": {
-      "source": { "source": "github", "repo": "innsolutionsmx/inns-ai-flow" }
+      "source": { "source": "github", "repo": "innsolutionsmx/inns-ai-flow" },
+      "autoUpdate": true
     }
   },
   "enabledPlugins": {
@@ -95,6 +96,12 @@ project workflow says agents push; otherwise leave local and say so.
 
 - The GitHub repo above must be reachable (it is public). Marketplace errors appear
   in `/plugin` → Errors.
+- **Known fallback**: on some Claude Code versions, `extraKnownMarketplaces` in project
+  settings does not trigger the install prompt on first open. If after Trust nothing
+  installs, run manually: `/plugin marketplace add innsolutionsmx/inns-ai-flow` then
+  `/plugin install inns-ai-flow@inns-ai-flow`.
+- Full docs (what the plugin is, use cases, reference, updates, releases): `docs/` in
+  this repo.
 - This file is fetched from `main`; reference it by URL, never copy it into projects.
 - Design pipeline (design-forge) is a SEPARATE plugin — install it only if the
   project does frontend design work: https://github.com/innsolutionsmx/design-forge

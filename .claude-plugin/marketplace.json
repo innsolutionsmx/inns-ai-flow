@@ -1,0 +1,13 @@
+{
+  "name": "inns-ai-flow",
+  "owner": {
+    "name": "Innsolutions"
+  },
+  "plugins": [
+    {
+      "name": "inns-ai-flow",
+      "source": "./",
+      "description": "Workflow de la casa Innsolutions: gitflow skills + hooks de guardia + briefing + seo-frontend + bootstrap de la convención CLAUDE.md/ai."
+    }
+  ]
+}

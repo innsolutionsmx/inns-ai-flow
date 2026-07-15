@@ -26,6 +26,7 @@ de versión, y TODOS los proyectos la reciben.
 |------|--------|----------|
 | `git-guard.sh` | PreToolUse (Edit/Write) | **Bloquea** ediciones si estás parado en `main` o `dev` — te obliga a abrir rama |
 | `git-session-status.sh` | SessionStart | Reporta rama actual, avisos de rama protegida y árbol sucio al abrir sesión |
+| `progreso-status.sh` | SessionStart | Inyecta la "Última actualización" de `progreso-actual.md` — el agente arranca sabiendo dónde quedó el trabajo, sin depender de prosa en CLAUDE.md |
 | `briefing-detect.sh` | PostToolUse (Bash) | Detecta push a `dev` y ofrece el briefing de cierre |
 
 ### Comando

@@ -32,15 +32,30 @@ overwrite existing content.
    - Sections: Última actualización (fecha/máquina/rama/última acción), Estado del
      proyecto (en progreso / completado), Próximos pasos.
 
-4. **CLAUDE.md.** If it exists: add only what's missing (a "Skills del Proyecto"
-   note pointing to the plugin, the context-folder index, the session rules). If it
-   doesn't exist, create it with:
-   - Stack table (detected from the repo).
-   - Note that gitflow skills and hooks come from the `inns-ai-flow` plugin (do NOT
-     duplicate their rules in CLAUDE.md — the plugin versions are the source of truth).
+4. **CLAUDE.md — ownership rule.** CLAUDE.md contains ONLY what is specific to THIS
+   project. The house convention lives in the plugin and must never be duplicated
+   in CLAUDE.md (duplicated prose diverges — that's the disease this plugin cures).
+
+   Stays in CLAUDE.md (project-owned):
+   - Stack table, backend/frontend architecture, design system pointers.
    - Index table of the context folder files.
-   - Session rules: read `progreso-actual.md` first; update it + save session summary
-     at close; the `briefing` skill offer fires automatically after a push to `dev`.
+   - Project-specific conventions (naming, icons, client rules like copy language).
+   - One short line: "Gitflow, guardias y protocolo de sesión los provee el plugin
+     `inns-ai-flow` — sus skills y hooks son la fuente de verdad."
+
+   Owned by the plugin (must NOT appear in CLAUDE.md):
+   - Gitflow rules and branch workflow (they live in the `iniciar-trabajo-git` /
+     `guardar-cambios-git` skills; `git-guard` enforces the blocking).
+   - Skills tables describing plugin skills.
+   - "Read progreso-actual.md first" session rules — the `progreso-status` SessionStart
+     hook now injects that state automatically; prose is redundant.
+   - Session close protocol (lives in `briefing` / `guardar-cambios-git`).
+
+   If CLAUDE.md **doesn't exist**: create it with only the project-owned sections.
+   If it **exists**: identify convention sections that the plugin now owns, show the
+   user the list, and ask confirmation to REMOVE them (keeping anything with
+   project-specific customizations — when a section mixes both, keep only the
+   project-specific lines).
 
 5. **Settings.** Merge into `.claude/settings.json` (create if missing, PRESERVE all
    existing keys — hooks, permissions, other plugins):

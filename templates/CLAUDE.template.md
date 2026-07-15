@@ -11,7 +11,8 @@ Formato lista, una línea por puntero.}}
 Gitflow, guardias y protocolo de sesión los provee el plugin **`inns-ai-flow`** —
 sus skills (`iniciar-trabajo-git`, `guardar-cambios-git`, `briefing`) y hooks
 (`git-guard`, `git-session-status`, `progreso-status`) son la fuente de verdad.
-No dupliques sus reglas en este archivo.
+No dupliques sus reglas en este archivo. Instalación, actualización, casos de uso y
+referencia completa: `docs/` en https://github.com/innsolutionsmx/inns-ai-flow.
 
 {{Solo si el proyecto tiene flujo propio ADICIONAL (ej. crear-proyecto → setup.sh →
 setup-proyecto en el boilerplate): resumilo en 2-3 líneas + puntero al doc completo.}}

@@ -11,8 +11,10 @@
 - **Fecha**: 2026-07-15
 - **Máquina**: Mac (oficina)
 - **Rama actual**: `dev`
-- **Última acción**: Dogfood — el repo se instala a sí mismo (`.claude/settings.json`
-  consume la versión publicada en main), rama `dev` creada.
+- **Última acción**: Documentación completa (`docs/`: qué-es-y-por-qué, casos de uso,
+  referencia, actualización, desarrollo-y-releases) + `autoUpdate: true` en todos los
+  settings y ejemplos (los proyectos reciben releases solos) + fallback de instalación
+  documentado en SETUP.md. Todo en `dev`, pendiente de release.
 
 ---
 

@@ -67,7 +67,8 @@ overwrite existing content.
    {
      "extraKnownMarketplaces": {
        "inns-ai-flow": {
-         "source": { "source": "github", "repo": "innsolutionsmx/inns-ai-flow" }
+         "source": { "source": "github", "repo": "innsolutionsmx/inns-ai-flow" },
+         "autoUpdate": true
        }
      },
      "enabledPlugins": {
@@ -75,6 +76,9 @@ overwrite existing content.
      }
    }
    ```
+   `autoUpdate: true` is deliberate: third-party marketplaces have it OFF by default;
+   with it on, releases (version bumps pushed to main) reach the project automatically
+   on the next session start.
    Note: the plugin's hooks wire themselves via its own hooks.json — do NOT add hook
    entries to the project settings for git-guard/git-session-status/briefing-detect.
    If the project has LEGACY copies of these hooks/skills in `.claude/`, list them and

@@ -64,6 +64,16 @@ Después: `/inns-ai-flow:bootstrap` si el proyecto todavía no tiene la convenci
    sin bump, los proyectos pueden quedarse con la copia vieja).
 3. Commit + push a `main`. Los proyectos reciben el update al refrescar el marketplace.
 
+## Documentación
+
+| Doc | Qué cubre |
+|-----|-----------|
+| [`docs/que-es-y-por-que.md`](./docs/que-es-y-por-que.md) | El problema que originó el plugin, qué resuelve, qué no, y cómo funciona por dentro |
+| [`docs/casos-de-uso.md`](./docs/casos-de-uso.md) | Escenarios reales paso a paso (arrancar tarea, cerrar batch, sumar compañero…) |
+| [`docs/referencia.md`](./docs/referencia.md) | Cada skill, hook y comando: qué hace y cuándo se activa |
+| [`docs/actualizacion.md`](./docs/actualizacion.md) | Instalación y actualización automática (autoUpdate, /reload-plugins, fallback) |
+| [`docs/desarrollo-y-releases.md`](./docs/desarrollo-y-releases.md) | Cómo se agrega una pieza y cómo se hace una release (dev → main + bump) |
+
 ## Relación con design-forge
 
 - **inns-ai-flow** = CÓMO trabaja el equipo (gitflow, guardias, briefings, convención `ai/`).

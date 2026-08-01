@@ -37,7 +37,6 @@ de ramas lo llevan las mismas skills que estás modificando.
      `templates/CLAUDE.template.md`.
 3. Actualizar `docs/referencia.md` (y `casos-de-uso.md` si aplica).
 4. Cerrar con `guardar-cambios-git` → integra a `dev`.
-5. Actualizar `ai/context/progreso-actual.md` (lo pide el propio workflow).
 
 ## Cómo se hace una release
 

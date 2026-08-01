@@ -37,11 +37,6 @@ Se auto-invocan por contexto, o manualmente como `/inns-ai-flow:<nombre>`.
 ### `git-session-status.sh` — SessionStart
 Reporta al abrir sesión: rama actual, aviso si es protegida, árbol sucio. Solo lectura.
 
-### `progreso-status.sh` — SessionStart
-Busca `ai/context/progreso-actual.md` (o `ia/`) e inyecta su sección "Última
-actualización" como contexto: el agente arranca sabiendo dónde quedó el trabajo.
-Si hay carpeta de contexto sin el archivo, sugiere `/inns-ai-flow:bootstrap`.
-
 ### `git-guard.sh` — PreToolUse (Edit|Write|MultiEdit|NotebookEdit)
 **Bloquea** la edición si la rama del archivo es `main` o `dev` y explica cómo abrir
 rama. Deriva la rama desde el directorio del ARCHIVO (correcto incluso con repos
@@ -55,7 +50,7 @@ de ofrecer el briefing. No genera el briefing — eso es de la skill, si aceptá
 
 ### `/inns-ai-flow:bootstrap`
 Deja el proyecto con la convención completa. Crea (con MERGE, nunca overwrite):
-`ai/context/` + `progreso-actual.md`, CLAUDE.md desde `templates/CLAUDE.template.md`
+`ai/context/`, CLAUDE.md desde `templates/CLAUDE.template.md`
 (solo contenido del proyecto), settings declarativo con `autoUpdate`. En proyectos
 legacy: adelgaza CLAUDE.md y detecta copias viejas de skills/hooks (pide confirmación).
 

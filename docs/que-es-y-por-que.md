@@ -27,9 +27,9 @@ pasan a REFERENCIAR una versión.
 - **Diseño frontend**: ese rol es de [design-forge](https://github.com/innsolutionsmx/design-forge)
   (pipeline de diseño con Impeccable como cerebro). `ux-polish` quedó deprecada a favor
   de ese ecosistema.
-- **Contenido del proyecto**: CLAUDE.md, `ai/context/`, `progreso-actual.md` son
-  archivos DEL proyecto — el plugin no puede inyectarlos; el comando `bootstrap` los
-  crea una vez y de ahí son del repo.
+- **Contenido del proyecto**: CLAUDE.md y `ai/context/` son archivos DEL proyecto — el
+  plugin no puede inyectarlos; el comando `bootstrap` los crea una vez y de ahí son
+  del repo.
 
 ## Cómo funciona por dentro
 
@@ -38,9 +38,7 @@ Un plugin de Claude Code es un paquete versionado que se instala desde un market
 
 1. **Hooks** (`hooks/hooks.json`) — se cablean SOLOS, sin tocar el settings del
    proyecto. Al abrir sesión: `git-session-status` reporta la rama y el estado del
-   árbol, y `progreso-status` inyecta la sección "Última actualización" de
-   `progreso-actual.md` (el agente arranca sabiendo dónde quedó el trabajo, sin
-   depender de que lea prosa). Durante la sesión: `git-guard` **bloquea** cualquier
+   árbol. Durante la sesión: `git-guard` **bloquea** cualquier
    Edit/Write si estás parado en `main` o `dev` — la regla de oro deja de ser un
    consejo y pasa a ser un candado. Tras un push a `dev`: `briefing-detect` ofrece el
    briefing de cierre.
@@ -52,7 +50,7 @@ Un plugin de Claude Code es un paquete versionado que se instala desde un market
    `briefing` (cierre de batch con QA y handoff).
 
 3. **Comando** (`/inns-ai-flow:bootstrap`) — crea en el proyecto lo que el plugin no
-   puede inyectar: carpeta `ai/context/` con `progreso-actual.md`, CLAUDE.md desde el
+   puede inyectar: carpeta `ai/context/`, CLAUDE.md desde el
    template canónico, settings declarativo. En proyectos legacy además ADELGAZA el
    CLAUDE.md (remueve la convención duplicada) y detecta copias viejas de skills/hooks.
 

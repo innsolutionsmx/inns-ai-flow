@@ -75,7 +75,7 @@ Show the user the reference diff before committing.
 
 If the project has no `ai/` or `ia/` context folder or no CLAUDE.md, tell the human
 that after restarting they should run `/inns-ai-flow:bootstrap`, which creates the
-full convention (context folder + `progreso-actual.md` + CLAUDE.md index). Do not
+full convention (context folder + CLAUDE.md index). Do not
 hand-build those files yourself in this setup — the bootstrap command owns that.
 
 ## 5. Commit

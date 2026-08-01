@@ -10,7 +10,7 @@ Formato lista, una línea por puntero.}}
 
 Gitflow, guardias y protocolo de sesión los provee el plugin **`inns-ai-flow`** —
 sus skills (`iniciar-trabajo-git`, `guardar-cambios-git`, `briefing`) y hooks
-(`git-guard`, `git-session-status`, `progreso-status`) son la fuente de verdad.
+(`git-guard`, `git-session-status`, `briefing-detect`) son la fuente de verdad.
 No dupliques sus reglas en este archivo. Instalación, actualización, casos de uso y
 referencia completa: `docs/` en https://github.com/innsolutionsmx/inns-ai-flow.
 
@@ -61,7 +61,7 @@ Todos los archivos de contexto están en `{{ai|ia}}/context/`:
 
 | Archivo | Qué cubre |
 |---------|-----------|
-{{índice real de la carpeta, incluida progreso-actual.md}}
+{{índice real de la carpeta}}
 
 ## Convenciones Generales
 

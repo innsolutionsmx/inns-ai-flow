@@ -5,8 +5,7 @@ habilitado en el proyecto.
 
 ## 1. Arranco una tarea nueva
 
-1. Abrís sesión → `git-session-status` te muestra rama y estado; `progreso-status`
-   te inyecta dónde quedó el trabajo.
+1. Abrís sesión → `git-session-status` te muestra rama y estado.
 2. Pedís la tarea ("agreguemos X"). Si estás parado en `main`/`dev`, `git-guard`
    bloquea la primera edición y el agente invoca `iniciar-trabajo-git`: te para en
    `dev` actualizado y crea `feat/x` (prefijo Conventional según el cambio).
@@ -28,14 +27,13 @@ habilitado en el proyecto.
 2. Si aceptás, la skill `briefing` produce: qué se hizo y por qué, checklist de QA
    manual para probar en la UI, y un handoff copiable + guardado en memoria para
    arrancar la próxima sesión (o para pasarle a un compañero).
-3. `progreso-actual.md` se actualiza — tu otra máquina y tu equipo lo reciben con git.
 
 ## 4. Proyecto nuevo desde cero
 
 1. Instalás el plugin (ver README o pegale el SETUP.md a Claude).
-2. Corrés `/inns-ai-flow:bootstrap`: crea `ai/context/` con `progreso-actual.md`,
-   CLAUDE.md desde el template canónico (solo contenido del proyecto — la convención
-   ya viene en el plugin), y el settings declarativo.
+2. Corrés `/inns-ai-flow:bootstrap`: crea `ai/context/`, CLAUDE.md desde el template
+   canónico (solo contenido del proyecto — la convención ya viene en el plugin), y el
+   settings declarativo.
 3. Desde ese momento el proyecto tiene el workflow completo de la casa.
 
 ## 5. Un compañero se suma a un proyecto existente
@@ -44,9 +42,8 @@ habilitado en el proyecto.
 2. Acepta el diálogo de **Trust** → el marketplace declarado en `.claude/settings.json`
    se instala y el plugin se habilita solo (si el prompt no aparece, fallback manual
    en `docs/actualizacion.md`).
-3. Su primera sesión ya arranca con los hooks activos y el estado de
-   `progreso-actual.md` inyectado. No necesita que nadie le explique el workflow:
-   el workflow lo va llevando.
+3. Su primera sesión ya arranca con los hooks activos. No necesita que nadie le
+   explique el workflow: el workflow lo va llevando.
 
 ## 6. Mejoro el workflow del equipo
 

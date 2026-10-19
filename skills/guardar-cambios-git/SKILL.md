@@ -9,7 +9,7 @@ description: >
 license: Apache-2.0
 metadata:
   author: gentleman-programming
-  version: "1.2"
+  version: "1.3"
 allowed-tools: Bash(git:*), Bash(docker compose:*), Bash(php artisan test:*), Bash(./vendor/bin/pest:*), Bash(npx playwright:*), Read
 ---
 
@@ -118,6 +118,11 @@ Confirmá con el usuario antes de empezar.
 6. (Opcional, si el usuario lo pide) etiquetar release: `git tag -a vX.Y.Z -m "..."`
    y `git push origin vX.Y.Z`.
 7. `git checkout dev` (volvé a dev).
+
+### Paso 5.1 — Monitorear el despliegue (obligatorio tras push a main)
+
+Un push a `main` no es un release verificado. Invocá la skill `monitorear-despliegue`
+y no cierres el Paso 6 hasta tener su veredicto (verificado / fallido / no verificable).
 
 ## Paso 6 — Reporte final
 

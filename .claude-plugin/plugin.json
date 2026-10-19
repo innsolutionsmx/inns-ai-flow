@@ -1,6 +1,6 @@
 {
   "name": "inns-ai-flow",
-  "description": "Workflow de la casa Innsolutions: gitflow con skills (iniciar-trabajo-git, guardar-cambios-git, briefing), hooks de guardia (git-guard, git-session-status, briefing-detect), skill de SEO frontend y bootstrap de la convención CLAUDE.md + carpeta ai/.",
+  "description": "Workflow de la casa Innsolutions: gitflow con skills (iniciar-trabajo-git, guardar-cambios-git, briefing, monitorear-despliegue), hooks de guardia (git-guard, git-session-status, briefing-detect), skill de SEO frontend y bootstrap de la convención CLAUDE.md + carpeta ai/.",
   "version": "0.5.0",
   "author": {
     "name": "Innsolutions",

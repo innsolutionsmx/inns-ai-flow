@@ -19,6 +19,17 @@ Se auto-invocan por contexto, o manualmente como `/inns-ai-flow:<nombre>`.
   commits en `dev` no promovidos a `main`, ramas sin mergear, sync de permanentes).
 - **Regla dura**: nada se integra en rojo; promoción a `main` solo si se pide explícito.
 
+### `monitorear-despliegue`
+- **Cuándo se activa**: tras un push a `main` (la invoca `guardar-cambios-git`, Paso
+  5.1), o a pedido — "¿ya subió a producción?", "verificar el release".
+- **Qué hace**: detecta el CI y lo sigue hasta el final → clasifica cómo despliega el
+  proyecto (job de CI o externo) → verifica el entorno vivo y ata lo servido al commit
+  (versión expuesta, header de plataforma, assets con hash o marcador del cambio).
+- **Configuración opcional** en `CLAUDE.md`: `URL de producción:`, `Health check:`,
+  `Versión:`. Lo que falte se detecta o se pregunta una vez.
+- **Regla dura**: un CI verde no es un deploy verificado; sin evidencia contra el
+  entorno vivo el veredicto es "no verificable", nunca "desplegado".
+
 ### `briefing`
 - **Cuándo se activa**: cierre de batch — ofrecida automáticamente por
   `briefing-detect` tras un push a `dev`, o a pedido.

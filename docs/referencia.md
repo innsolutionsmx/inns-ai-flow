@@ -42,6 +42,12 @@ Se auto-invocan por contexto, o manualmente como `/inns-ai-flow:<nombre>`.
 - **Cuándo se activa**: trabajo en vistas públicas — meta tags, Open Graph, JSON-LD,
   canonical, sitemap, robots.txt, Core Web Vitals, accesibilidad.
 - **Qué hace**: aplica el estándar SEO/a11y de la casa sobre la vista en cuestión.
+  Es agnóstica de stack: un Paso 0 detecta el proyecto (`astro.config.*` → Astro;
+  `artisan` o `laravel/framework` en `composer.json` → Laravel + Blade) y carga solo la
+  referencia que corresponde (`references/astro.md` o `references/laravel-blade.md`).
+  Sin stack reconocido, aplica las reglas universales con HTML plano.
+- **Assets**: `assets/laravel/head-seo.blade.php` (template de head para layouts Blade) y
+  `assets/astro/SEOHead.astro` (para proyectos Astro sin el `Base.astro` del template de la casa).
 
 ## Hooks (se cablean solos vía `hooks/hooks.json`)
 

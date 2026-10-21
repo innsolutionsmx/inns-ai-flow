@@ -1,0 +1,70 @@
+---
+/**
+ * SEO <head> tags for Astro projects that do NOT have the house `Base.astro` layout.
+ * In the house template (base-landing-astro), `src/layouts/Base.astro` already renders
+ * these tags — do not add this component there; extend Base.astro's props instead.
+ *
+ * Usage: copy to `src/components/SEOHead.astro` and render it inside the layout's <head>:
+ *   <head><SEOHead title={title} description={description} /></head>
+ *
+ * Expects `src/config/site.ts` exporting `site` with siteName, description, url and locale
+ * (same shape as the house template). Adapt the import if the project keeps it elsewhere.
+ * Requires `site` in astro.config.mjs for absolute canonical/OG URLs.
+ */
+import { site } from "../config/site";
+
+interface Props {
+  /** Page title. Falls back to the site name from config. */
+  title?: string;
+  /** Meta description. Falls back to the site description from config. */
+  description?: string;
+  /** OG/Twitter image path inside `public/` or absolute URL. */
+  image?: string;
+  /** Open Graph type, e.g. "website" or "article". */
+  type?: string;
+  /** Set true for utility pages (404, thank-you) and private areas. */
+  noindex?: boolean;
+  /** Override canonical (e.g. paginated or filtered URLs). Defaults to the current path. */
+  canonical?: string;
+}
+
+const {
+  title = site.siteName,
+  description = site.description,
+  image = "/og-default.jpg",
+  type = "website",
+  noindex = false,
+  canonical,
+} = Astro.props;
+
+const base = Astro.site ?? site.url;
+const pageTitle =
+  title === site.siteName ? site.siteName : `${title} | ${site.siteName}`;
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, base);
+const imageUrl = new URL(image, base);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.siteName} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content={site.locale.replace("-", "_")} />
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<!-- Page-level extras (preloads, JSON-LD) -->
+<slot />

@@ -19,6 +19,17 @@ Se auto-invocan por contexto, o manualmente como `/inns-ai-flow:<nombre>`.
   commits en `dev` no promovidos a `main`, ramas sin mergear, sync de permanentes).
 - **Regla dura**: nada se integra en rojo; promoción a `main` solo si se pide explícito.
 
+### `monitorear-despliegue`
+- **Cuándo se activa**: tras un push a `main` (la invoca `guardar-cambios-git`, Paso
+  5.1), o a pedido — "¿ya subió a producción?", "verificar el release".
+- **Qué hace**: detecta el CI y lo sigue hasta el final → clasifica cómo despliega el
+  proyecto (job de CI o externo) → verifica el entorno vivo y ata lo servido al commit
+  (versión expuesta, header de plataforma, assets con hash o marcador del cambio).
+- **Configuración opcional** en `CLAUDE.md`: `URL de producción:`, `Health check:`,
+  `Versión:`. Lo que falte se detecta o se pregunta una vez.
+- **Regla dura**: un CI verde no es un deploy verificado; sin evidencia contra el
+  entorno vivo el veredicto es "no verificable", nunca "desplegado".
+
 ### `briefing`
 - **Cuándo se activa**: cierre de batch — ofrecida automáticamente por
   `briefing-detect` tras un push a `dev`, o a pedido.
@@ -31,6 +42,12 @@ Se auto-invocan por contexto, o manualmente como `/inns-ai-flow:<nombre>`.
 - **Cuándo se activa**: trabajo en vistas públicas — meta tags, Open Graph, JSON-LD,
   canonical, sitemap, robots.txt, Core Web Vitals, accesibilidad.
 - **Qué hace**: aplica el estándar SEO/a11y de la casa sobre la vista en cuestión.
+  Es agnóstica de stack: un Paso 0 detecta el proyecto (`astro.config.*` → Astro;
+  `artisan` o `laravel/framework` en `composer.json` → Laravel + Blade) y carga solo la
+  referencia que corresponde (`references/astro.md` o `references/laravel-blade.md`).
+  Sin stack reconocido, aplica las reglas universales con HTML plano.
+- **Assets**: `assets/laravel/head-seo.blade.php` (template de head para layouts Blade) y
+  `assets/astro/SEOHead.astro` (para proyectos Astro sin el `Base.astro` del template de la casa).
 
 ## Hooks (se cablean solos vía `hooks/hooks.json`)
 

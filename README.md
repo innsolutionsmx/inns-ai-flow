@@ -17,8 +17,9 @@ de versión, y TODOS los proyectos la reciben.
 |-------|----------|---------------|
 | `iniciar-trabajo-git` | Te para en `dev` actualizado y crea la rama `{tipo}/{nombre}` con prefijo Conventional antes de tocar código | Arranque de una tarea, "nueva rama", o al estar en `main`/`dev` por editar |
 | `guardar-cambios-git` | Cierre de tarea: commitea, corre tests, integra a `dev`, sincroniza, limpia ramas e inventaría pendientes (qué quedó solo en local vs producción) | Cierre de una tarea / "guardá los cambios" |
+| `monitorear-despliegue` | Tras un release sigue el CI y prueba contra el entorno vivo que se sirve el commit liberado; cualquier stack. Veredicto con evidencia | Tras push a `main` (Paso 5.1 de `guardar-cambios-git`) / "¿ya subió a producción?" |
 | `briefing` | Cierre de batch: qué se hizo y por qué, checklist de QA manual, handoff copiable + memoria | Tras push a `dev` (ofrecido automático por hook) o a pedido |
-| `seo-frontend` | Meta tags, Open Graph, JSON-LD, canonical, sitemap, Core Web Vitals, accesibilidad | Trabajo en vistas públicas / SEO |
+| `seo-frontend` | Meta tags, Open Graph, JSON-LD, canonical, sitemap, Core Web Vitals, accesibilidad. Agnóstica de stack: detecta el proyecto y carga la referencia de Laravel/Blade o Astro (HTML plano si no hay) | Trabajo en vistas públicas (`.astro`, `.blade.php`) / SEO |
 
 ### Hooks (se cablean solos — cero config en el proyecto)
 
